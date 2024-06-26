@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+a{
+  text-decoration: none !important;
+}
+.myBody{
+  padding-top: 76px;
+}
+.page-wrapper{
+  padding: 50px 0;
+}
+:root{
+  --primary-color: #000000;
+  --primary-color-08: rgba(0, 0, 0, 0.8);
+  --secondary-color: #30373e;
+  --third-color: #daa14d;
+  --fourth-color: #ffffff;
+  --fifth-color: #ffbb38;
+}
