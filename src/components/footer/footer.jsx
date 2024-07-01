@@ -1,11 +1,12 @@
-import React from "react";
-import "./footer.scss";
-import { NavLink } from "react-router-dom";
-import logo from "../../assets/logo220x_transparent.png";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import location from "../../assets/icons/location-tf.png";
-import mail from "../../assets/icons/mail-tf.png";
-import phone from "../../assets/icons/phone-call-tf.png";
+import React from 'react';
+import './footer.scss';
+import { NavLink } from 'react-router-dom';
+import logo from '../../assets/logo220x_transparent.png';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import location from '../../assets/icons/location-tf.png';
+import mail from '../../assets/icons/mail-tf.png';
+import phone from '../../assets/icons/phone-call-tf.png';
+import FacebookIcon from '../../assets/icons/social/facebookIcon';
 
 const Footer = () => {
   return (
@@ -21,34 +22,19 @@ const Footer = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <LazyLoadImage
-                      src={location}
-                      alt="img"
-                      width={"20px"}
-                      height={"auto"}
-                    />
+                    <LazyLoadImage src={location} alt="img" width={'20px'} height={'auto'} />
                     <span>1808 S Victory Blvd, Glendale, CA 91201</span>
                   </a>
                 </p>
                 <p className="contact-info">
                   <a href="tel:+18182818136">
-                    <LazyLoadImage
-                      src={phone}
-                      alt="img"
-                      width={"20px"}
-                      height={"auto"}
-                    />
+                    <LazyLoadImage src={phone} alt="img" width={'20px'} height={'auto'} />
                     <span>+1 (818) 281-8136</span>
                   </a>
                 </p>
                 <p className="contact-info">
                   <a href="mailto:lasmartblinds@gmail.com">
-                    <LazyLoadImage
-                      src={mail}
-                      alt="img"
-                      width={"20px"}
-                      height={"auto"}
-                    />
+                    <LazyLoadImage src={mail} alt="img" width={'20px'} height={'auto'} />
                     <span>lasmartblinds@gmail.com</span>
                   </a>
                 </p>
@@ -57,18 +43,16 @@ const Footer = () => {
             <div className="col-md-4 footer-links">
               <ul>
                 <li>
-                  <NavLink to={"/faq"}>FAQ</NavLink>
+                  <NavLink to={'/faq'}>FAQ</NavLink>
                 </li>
                 {/*<li>*/}
                 {/*  <NavLink to={'/blog'}>Blog</NavLink>*/}
                 {/*</li>*/}
                 <li>
-                  <NavLink to={"/accessibility"}>
-                    Accessibility Statement
-                  </NavLink>
+                  <NavLink to={'/accessibility'}>Accessibility Statement</NavLink>
                 </li>
                 <li>
-                  <NavLink to={"/privacy-policy"}>Privacy Policy</NavLink>
+                  <NavLink to={'/privacy-policy'}>Privacy Policy</NavLink>
                 </li>
               </ul>
             </div>
@@ -77,9 +61,10 @@ const Footer = () => {
                 src={logo}
                 alt="img"
                 className="img-fluid footer-logo"
-                width={"100%"}
-                height={"auto"}
+                width={'100%'}
+                height={'auto'}
               />
+              <FacebookIcon />
             </div>
           </div>
         </div>
@@ -87,15 +72,14 @@ const Footer = () => {
       <div className="footerBottom">
         <div className="container">
           <div className="copyright">
-            © Copyright{" "}
+            © Copyright{' '}
             <strong>
               <span>LA SMART BLINDS</span>
             </strong>
             . All Rights Reserved.
           </div>
           <div className="credits">
-            Powered by{" "}
-            <a href="https://www.linkedin.com/in/mkrtum-abrahamyan/">M. A.</a>
+            Powered by <a href="https://www.linkedin.com/in/mkrtum-abrahamyan/">M. A.</a>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@
     //border-top: 1px solid;
   }
   .img-place{
-    background: gray;
+    //background: gray;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -15,18 +15,29 @@
   #welcome{
     width: 100%;
     height: calc(100vh - 76px);
-    background-image: url(../../assets/images/background.jpeg);
     background-attachment: fixed;
     background-position: center;
     background-origin: border-box;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    overflow: hidden;
+    .video-background {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+    }
     &:before{
       content: "";
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,.3);
+      background: rgba(0,0,0,.1);
       position: absolute;
       top: 0;
       left: 0;

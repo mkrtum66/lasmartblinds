@@ -1,0 +1,15 @@
+.residentialPage{
+  .nav-link{
+    color: black;
+    transition: all 300ms;
+    &:hover{
+      background-color: var(--fifth-color);
+      transform: scale(1.1);
+    }
+  }
+  .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: var(--fifth-color);
+
+    transition: all 300ms;
+  }
+}

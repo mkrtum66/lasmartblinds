@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import './portfolioPage.scss';
+import './ourJobsPage.scss';
 
 import { Container, Tab, Tabs } from 'react-bootstrap';
 
@@ -12,7 +12,7 @@ import { getCommercialThunk } from '../../redux/thunks/getCommercialThunk';
 import Loader from '../../components/loader';
 import { getResidentialThunk } from '../../redux/thunks/getResidentialThunk';
 
-const PortfolioPage = () => {
+const OurJobsPage = () => {
   const [key, setKey] = useState('residential');
   const [clickedItem, setClickedItem] = useState('');
   const [modalShow, setModalShow] = React.useState(false);
@@ -112,4 +112,4 @@ const PortfolioPage = () => {
   );
 };
 
-export default PortfolioPage;
+export default OurJobsPage;
