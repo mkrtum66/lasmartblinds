@@ -8,7 +8,7 @@ import deleteImageReducer from './reducers/imageDeleteReducer';
 import uploadImageReducer from './reducers/imageUploadReducer';
 import { areasReducer } from './reducers/areasReducer';
 
-const rootReducer = combineReducers({
+export const tempReducer = combineReducers({
   loading: loadingReducer,
   team: teamReducer,
   residential: residentialReducer,
@@ -18,5 +18,3 @@ const rootReducer = combineReducers({
   uploadImage: uploadImageReducer,
   deleteImage: deleteImageReducer,
 });
-
-export default rootReducer;
