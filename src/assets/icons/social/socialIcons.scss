@@ -1,0 +1,56 @@
+.social-icon{
+  width: 20px;
+  height: 20px;
+  stroke: white;
+  fill: white;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  &:hover{
+    transform: scale(1.1);
+  };
+  &.facebook{
+    svg{
+      width: 18px;
+      height: 20px;
+      margin-left: auto;
+      display: flex;
+      margin-top: auto;
+    }
+    &:hover{
+      background-color: #0766ff;
+    }
+  }
+  &.instagram{
+    &:hover{
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    }
+  }
+  &.xIcon{
+    svg{
+      width: 15px;
+      height: 15px;
+    }
+    &:hover{
+      background: black;
+    }
+  }
+  &.pinterest{
+    &:hover{
+      background-color: #de0322;
+    }
+  }
+  &.linkedin{
+    &:hover{
+      background-color: #0277b5;
+    }
+ }
+}

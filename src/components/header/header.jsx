@@ -119,6 +119,16 @@ const Header = ({ setMyRef }) => {
                   </NavLink>
                 </div>
                 <div className={'dropdown-link'}>
+                  <NavLink to={'/'} onClick={() => clickOnLink('purpose')}>
+                    Purpose
+                  </NavLink>
+                </div>
+                <div className={'dropdown-link'}>
+                  <NavLink to={'/'} onClick={() => clickOnLink('areas')}>
+                    Areas we serve
+                  </NavLink>
+                </div>
+                <div className={'dropdown-link'}>
                   <NavLink to={'/'} onClick={() => clickOnLink('team')}>
                     Team
                   </NavLink>

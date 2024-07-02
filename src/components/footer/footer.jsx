@@ -7,6 +7,10 @@ import location from '../../assets/icons/location-tf.png';
 import mail from '../../assets/icons/mail-tf.png';
 import phone from '../../assets/icons/phone-call-tf.png';
 import FacebookIcon from '../../assets/icons/social/facebookIcon';
+import InstagramIcon from '../../assets/icons/social/instagramIcon';
+import XIcon from '../../assets/icons/social/xIcon';
+import PinterestIcon from '../../assets/icons/social/pinterestIcon';
+import LinkedinIcon from '../../assets/icons/social/linkedinIcon';
 
 const Footer = () => {
   return (
@@ -49,6 +53,9 @@ const Footer = () => {
                 {/*  <NavLink to={'/blog'}>Blog</NavLink>*/}
                 {/*</li>*/}
                 <li>
+                  <NavLink to={'/terms&conditions'}>Terms & Conditions</NavLink>
+                </li>
+                <li>
                   <NavLink to={'/accessibility'}>Accessibility Statement</NavLink>
                 </li>
                 <li>
@@ -64,7 +71,13 @@ const Footer = () => {
                 width={'100%'}
                 height={'auto'}
               />
-              <FacebookIcon />
+              <div className="d-flex gap-3 mt-3 align-items-center justify-content-center">
+                <FacebookIcon />
+                <InstagramIcon />
+                <XIcon />
+                <PinterestIcon />
+                <LinkedinIcon />
+              </div>
             </div>
           </div>
         </div>

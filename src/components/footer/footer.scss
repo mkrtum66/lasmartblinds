@@ -54,6 +54,7 @@
             }
             &:hover{
               transform: scale(1.05);
+              color: var(--third-color);
             }
           }
           &:last-child{
@@ -92,7 +93,7 @@
           &:hover{
             a{
               transform: scale(1.1);
-              color: var(--primary-color);
+              color: var(--third-color);
             }
           }
         }

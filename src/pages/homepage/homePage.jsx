@@ -13,6 +13,7 @@ import aboutUs1 from '../../assets/aboutUs/aboutUs1.webp';
 import aboutUs2 from '../../assets/aboutUs/aboutUs2.webp';
 import aboutUs3 from '../../assets/aboutUs/aboutUs3.webp';
 import video from '../../assets/video/videoplayback.mp4';
+import AreasSlider from '../../components/areasSlider';
 
 const HomePage = ({ myRef }) => {
   useEffect(() => {
@@ -232,6 +233,10 @@ const HomePage = ({ myRef }) => {
               <img src={aboutUs3} alt="img" className="img-fluid" />
             </div>
           </div>
+        </section>
+        <section id="areas" className="section-wrapper areas">
+          <Title>AREAS WE SERVE</Title>
+          <AreasSlider />
         </section>
         <section id="team" className="section-wrapper">
           <Title>Our Team</Title>

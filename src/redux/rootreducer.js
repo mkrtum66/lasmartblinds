@@ -6,12 +6,14 @@ import { commercialReducer } from './reducers/commercialReducer';
 import authReducer from './reducers/authReducer';
 import deleteImageReducer from './reducers/imageDeleteReducer';
 import uploadImageReducer from './reducers/imageUploadReducer';
+import { areasReducer } from './reducers/areasReducer';
 
 export const rootReducer = combineReducers({
   loading: loadingReducer,
   team: teamReducer,
   residential: residentialReducer,
   commercial: commercialReducer,
+  areas: areasReducer,
   auth: authReducer,
   uploadImage: uploadImageReducer,
   deleteImage: deleteImageReducer,

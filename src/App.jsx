@@ -24,6 +24,7 @@ import ServicesPage from './pages/servicesPage';
 import LoginPage from './pages/loginPage';
 import AdminPage from './pages/adminPage';
 import ProtectedRoute from './utils/hoc/protectedRoute';
+import TermsAndConditions from './pages/termsAndConditions/termsAndConditions';
 
 const App = () => {
   const [myRef, setMyRef] = useState();
@@ -45,6 +46,7 @@ const App = () => {
           <Route path={'/our-jobs'} element={<OurJobsPage />} />
           <Route path={'/services'} element={<ServicesPage />} />
           <Route path={'/contact-us'} element={<ContactUsPage />} />
+          <Route path={'/terms&conditions'} element={<TermsAndConditions />} />
 
           <Route path={'/faq'} element={<FaqPage />} />
           <Route path={'/accessibility'} element={<AccessibilityPage />} />
