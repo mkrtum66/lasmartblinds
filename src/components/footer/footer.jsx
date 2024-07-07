@@ -87,9 +87,9 @@ const Footer = () => {
           <div className="copyright">
             © Copyright{' '}
             <strong>
-              <span>LA SMART BLINDS</span>
+              <span>LA SMART BLINDS. </span>
             </strong>
-            . All Rights Reserved.
+            All Rights Reserved.
           </div>
           <div className="credits">
             Powered by <a href="https://www.linkedin.com/in/mkrtum-abrahamyan/">M. A.</a>

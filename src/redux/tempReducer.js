@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux';
 import { loadingReducer } from './reducers/loadingReducer';
 import { teamReducer } from './reducers/teamReducer';
-import { residentialReducer } from './reducers/residentialReducer';
-import { commercialReducer } from './reducers/commercialReducer';
+import { portfolioReducer } from './reducers/portfolioReducer';
 import authReducer from './reducers/authReducer';
 import deleteImageReducer from './reducers/imageDeleteReducer';
 import uploadImageReducer from './reducers/imageUploadReducer';
@@ -11,8 +10,7 @@ import { areasReducer } from './reducers/areasReducer';
 export const tempReducer = combineReducers({
   loading: loadingReducer,
   team: teamReducer,
-  residential: residentialReducer,
-  commercial: commercialReducer,
+  portfolio: portfolioReducer,
   areas: areasReducer,
   auth: authReducer,
   uploadImage: uploadImageReducer,

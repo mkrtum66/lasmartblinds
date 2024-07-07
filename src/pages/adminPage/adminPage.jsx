@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './adminPage.scss';
-import { Container, Form, Tab, Tabs } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/actions/authAction';
 import { useNavigate } from 'react-router-dom';
@@ -8,8 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { uploadImage } from '../../redux/actions/imageUploadAction';
 import Loader from '../../components/loader';
 import { delImage } from '../../redux/actions/imageDeleteAction';
-import { getCommercialThunk } from '../../redux/thunks/getCommercialThunk';
-import { getResidentialThunk } from '../../redux/thunks/getResidentialThunk';
+import { getPortfolioThunk } from '../../redux/thunks/getPortfolioThunk';
 import Title from '../../components/title';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import ConfirmModal from '../../components/confirmModal';
@@ -24,18 +23,16 @@ const AdminPage = () => {
   const { uploadLoading, imageUrl, uploadError } = useSelector(state => state.uploadImage);
   const { deleteLoading, deleteError } = useSelector(state => state.deleteImage);
 
-  const [key, setKey] = useState('residential');
   const [uploadImagePlace, setUploadImagePlace] = useState('residential');
   const [clickedItem, setClickedItem] = useState('');
   const [clickedItemName, setClickedItemName] = useState('');
   const [modalShow, setModalShow] = React.useState(false);
 
   const isLoading = useSelector(state => state.loading.isLoading);
-  const commerc = useSelector(state => state.commercial.commercial);
   const resident = useSelector(state => state.residential.residential);
 
   const handleDelete = () => {
-    dispatch(delImage(clickedItemName, key, clickedItem));
+    dispatch(delImage(clickedItemName, '', clickedItem));
   };
 
   const handleFileChange = event => {
@@ -53,8 +50,7 @@ const AdminPage = () => {
   };
 
   useEffect(() => {
-    dispatch(getCommercialThunk());
-    dispatch(getResidentialThunk());
+    dispatch(getPortfolioThunk());
   }, [dispatch]);
 
   const handleShowSliderModal = (id, name) => {
@@ -110,59 +106,27 @@ const AdminPage = () => {
         {/*  {deleteError && <p style={{ color: 'red' }}>{deleteError}</p>}*/}
         {/*</div>*/}
 
-        <Tabs
-          id="controlled-tab-example"
-          activeKey={key}
-          onSelect={k => setKey(k)}
-          className="mb-3"
-        >
-          <Tab eventKey="residential" title="Residential">
-            {!isLoading ? (
-              <ResponsiveMasonry columnsCountBreakPoints={{ 300: 2, 767: 3, 991: 4 }}>
-                <Masonry gutter="15px">
-                  {resident.map(item => {
-                    return (
-                      <div key={item.id} className="masonry-img-wrapper">
-                        <img src={item.imgUrl} alt={item.name} className="img-fluid" />
-                        <div
-                          className="delete-btn-wrapper"
-                          onClick={() => handleShowSliderModal(item.id, item.name)}
-                        >
-                          <img src={deleteImg} alt="img" className="img-fluid" />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </Masonry>
-              </ResponsiveMasonry>
-            ) : (
-              <Loader />
-            )}
-          </Tab>
-          <Tab eventKey="commercial" title="Commercial">
-            {!isLoading ? (
-              <ResponsiveMasonry columnsCountBreakPoints={{ 300: 2, 767: 3, 991: 4 }}>
-                <Masonry gutter="15px">
-                  {commerc.map(item => {
-                    return (
-                      <div key={item.id} className="masonry-img-wrapper">
-                        <img src={item.imgUrl} alt="img" className="img-fluid" />
-                        <div
-                          className="delete-btn-wrapper"
-                          onClick={() => handleShowSliderModal(item.id, item.name)}
-                        >
-                          <img src={deleteImg} alt="img" className="img-fluid" />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </Masonry>
-              </ResponsiveMasonry>
-            ) : (
-              <Loader />
-            )}
-          </Tab>
-        </Tabs>
+        {!isLoading ? (
+          <ResponsiveMasonry columnsCountBreakPoints={{ 300: 2, 767: 3, 991: 4 }}>
+            <Masonry gutter="15px">
+              {resident.map(item => {
+                return (
+                  <div key={item.id} className="masonry-img-wrapper">
+                    <img src={item.imgUrl} alt={item.name} className="img-fluid" />
+                    <div
+                      className="delete-btn-wrapper"
+                      onClick={() => handleShowSliderModal(item.id, item.name)}
+                    >
+                      <img src={deleteImg} alt="img" className="img-fluid" />
+                    </div>
+                  </div>
+                );
+              })}
+            </Masonry>
+          </ResponsiveMasonry>
+        ) : (
+          <Loader />
+        )}
         <ConfirmModal
           show={modalShow}
           onHide={() => setModalShow(false)}

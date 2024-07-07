@@ -10,18 +10,18 @@ import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getResidentialThunk } from '../../redux/thunks/getResidentialThunk';
+import { getPortfolioThunk } from '../../redux/thunks/getPortfolioThunk';
 
 const ProductPage = () => {
   const isLoading = useSelector(state => state.loading.isLoading);
-  const resident = useSelector(state => state.residential.residential);
+  const portfolio = useSelector(state => state.portfolio.portfolio);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getResidentialThunk());
+    dispatch(getPortfolioThunk());
   }, [dispatch]);
 
-  console.log(resident);
+  console.log(portfolio);
 
   return (
     <div className="residentialPage page-wrapper">

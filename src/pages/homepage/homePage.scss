@@ -80,8 +80,6 @@
     }
   }
   .stripe-container {
-    //width: 500px;
-    //height: 500px;
     font: 900 5.5rem sans-serif;
     text-align: center;
     display: flex;
@@ -90,6 +88,7 @@
   }
   .areas{
     position: relative;
+    min-height: auto;
   }
 
   /* Stripe Background Gradient */
