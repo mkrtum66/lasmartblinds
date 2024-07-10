@@ -50,8 +50,8 @@ const ProductPage = () => {
                 <Tab.Content>
                   <Tab.Pane eventKey="first">First tab content</Tab.Pane>
                   <Tab.Pane eventKey="second">Second tab content</Tab.Pane>
-                  <Tab.Pane eventKey="second">Third tab content</Tab.Pane>
-                  <Tab.Pane eventKey="second">Fourth tab content</Tab.Pane>
+                  <Tab.Pane eventKey="tirth">Third tab content</Tab.Pane>
+                  <Tab.Pane eventKey="fourth">Fourth tab content</Tab.Pane>
                 </Tab.Content>
               </Col>
             </Row>

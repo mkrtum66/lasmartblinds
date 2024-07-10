@@ -37,9 +37,9 @@ const Footer = () => {
                   </a>
                 </p>
                 <p className="contact-info">
-                  <a href="mailto:lasmartblinds@gmail.com">
+                  <a href="mailto:info@lasmartblinds.com">
                     <LazyLoadImage src={mail} alt="img" width={'20px'} height={'auto'} />
-                    <span>lasmartblinds@gmail.com</span>
+                    <span>info@lasmartblinds.com</span>
                   </a>
                 </p>
               </div>

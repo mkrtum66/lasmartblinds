@@ -1,11 +1,11 @@
-import React from "react";
-import "./contactUsPage.scss";
-import { Container } from "react-bootstrap";
-import Title from "../../components/title";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import location from "../../assets/icons/location-tf.png";
-import phone from "../../assets/icons/phone-call-tf.png";
-import mail from "../../assets/icons/mail-tf.png";
+import React from 'react';
+import './contactUsPage.scss';
+import { Container } from 'react-bootstrap';
+import Title from '../../components/title';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import location from '../../assets/icons/location-tf.png';
+import phone from '../../assets/icons/phone-call-tf.png';
+import mail from '../../assets/icons/mail-tf.png';
 
 const ContactUsPage = () => {
   return (
@@ -15,20 +15,18 @@ const ContactUsPage = () => {
           <div className="col-md-6">
             <Title>Contact Us</Title>
             <p className="mb-4">
-              Minimalist styling is not about creating a cold, hard, empty white
-              box of a home. It is about using simple and natural forms, and
-              taking away layers without losing the aesthetic appeal of the
-              space.
+              Minimalist styling is not about creating a cold, hard, empty white box of a home. It
+              is about using simple and natural forms, and taking away layers without losing the
+              aesthetic appeal of the space.
             </p>
             <div className="visit-us mb-4">
               <p className="mb-1">
                 <b>Visit Us:</b>
               </p>
               <p>
-                If you prefer face-to-face discussions or need to see our
-                products and services in person, we welcome you to visit our
-                showroom. Our friendly team will be on hand to guide you through
-                our offerings and answer any questions you may have.
+                If you prefer face-to-face discussions or need to see our products and services in
+                person, we welcome you to visit our showroom. Our friendly team will be on hand to
+                guide you through our offerings and answer any questions you may have.
               </p>
             </div>
             <div className="contact-info-wrapper mb-3">
@@ -41,35 +39,20 @@ const ContactUsPage = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <LazyLoadImage
-                    src={location}
-                    alt="img"
-                    width={"20px"}
-                    height={"auto"}
-                  />
+                  <LazyLoadImage src={location} alt="img" width={'20px'} height={'auto'} />
                   <span>1808 S Victory Blvd, Glendale, CA 91201</span>
                 </a>
               </p>
               <p className="contact-info">
                 <a href="tel:+18182818136">
-                  <LazyLoadImage
-                    src={phone}
-                    alt="img"
-                    width={"20px"}
-                    height={"auto"}
-                  />
+                  <LazyLoadImage src={phone} alt="img" width={'20px'} height={'auto'} />
                   <span>+1 (818) 281-8136</span>
                 </a>
               </p>
               <p className="contact-info">
-                <a href="mailto:lasmartblinds@gmail.com">
-                  <LazyLoadImage
-                    src={mail}
-                    alt="img"
-                    width={"20px"}
-                    height={"auto"}
-                  />
-                  <span>lasmartblinds@gmail.com</span>
+                <a href="mailto:info@lasmartblinds.com">
+                  <LazyLoadImage src={mail} alt="img" width={'20px'} height={'auto'} />
+                  <span>info@lasmartblinds.com</span>
                 </a>
               </p>
             </div>
