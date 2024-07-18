@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './productPage.scss';
 
 import { Container } from 'react-bootstrap';
@@ -11,51 +11,80 @@ import Tab from 'react-bootstrap/Tab';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getPortfolioThunk } from '../../redux/thunks/getPortfolioThunk';
+import { getProductsThunk } from '../../redux/thunks/getProductsThunk';
+import ProductTab from '../../components/productTab';
+
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const ProductPage = () => {
   const isLoading = useSelector(state => state.loading.isLoading);
   const portfolio = useSelector(state => state.portfolio.portfolio);
+  const products = useSelector(state => state.products.products);
   const dispatch = useDispatch();
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [activeKey, setActiveKey] = useState('1');
 
   useEffect(() => {
     dispatch(getPortfolioThunk());
+    dispatch(getProductsThunk());
   }, [dispatch]);
 
-  console.log(portfolio);
+  useEffect(() => {
+    const hash = location.hash.replace('#', '');
+    if (hash) {
+      setActiveKey(hash);
+    }
+  }, [location.hash]);
+
+  const handleSelect = key => {
+    setActiveKey(key);
+    navigate(`#${key}`);
+  };
+
+  console.log('portfolio = ', portfolio);
 
   return (
     <div className="residentialPage page-wrapper">
       {!isLoading ? (
         <Container>
           <Title>Products</Title>
-          <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-            <Row>
-              <Col sm={4} md={3} xl={2}>
-                <Nav variant="pills" className="flex-column">
-                  <Nav.Item>
-                    <Nav.Link eventKey="first">Exterior Blinds</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="second">Roller Shades</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="tirth">Shangri-La</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="fourth">Zebra</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-              </Col>
-              <Col sm={8} md={9} xl={10}>
-                <Tab.Content>
-                  <Tab.Pane eventKey="first">First tab content</Tab.Pane>
-                  <Tab.Pane eventKey="second">Second tab content</Tab.Pane>
-                  <Tab.Pane eventKey="tirth">Third tab content</Tab.Pane>
-                  <Tab.Pane eventKey="fourth">Fourth tab content</Tab.Pane>
-                </Tab.Content>
-              </Col>
-            </Row>
-          </Tab.Container>
+          {!isLoading && !!products.length ? (
+            <Tab.Container
+              id="left-tabs-example"
+              defaultActiveKey={products[0]?.id}
+              activeKey={activeKey}
+              onSelect={handleSelect}
+            >
+              <Row>
+                <Col sm={4} md={3} xl={2} className="mb-2 mb-md-0">
+                  <Nav variant="pills" className="flex-column">
+                    {products?.map(product => {
+                      return (
+                        <Nav.Item key={product.id}>
+                          <Nav.Link eventKey={product.id}>{product.title}</Nav.Link>
+                        </Nav.Item>
+                      );
+                    })}
+                  </Nav>
+                </Col>
+                <Col sm={8} md={9} xl={10}>
+                  <Tab.Content>
+                    {products.map(product => {
+                      return (
+                        <Tab.Pane key={product.id} eventKey={product.id}>
+                          <ProductTab info={product.info} />
+                        </Tab.Pane>
+                      );
+                    })}
+                  </Tab.Content>
+                </Col>
+              </Row>
+            </Tab.Container>
+          ) : (
+            <Loader />
+          )}
         </Container>
       ) : (
         <Loader />

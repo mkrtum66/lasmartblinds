@@ -1,0 +1,26 @@
+.productTab{
+  h1{
+    &.title-wrapper{
+      margin-bottom: 30px;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--fifth-color);
+      position: relative;
+      padding-left: 30px;
+      &:before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 25px;
+        height: 2px;
+        background: var(--fifth-color);
+      }
+    }
+  }
+  .share-with{
+    font-weight: bold;
+    color: var(--fifth-color);
+  }
+}

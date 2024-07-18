@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { initializeAnalytics, logPageView } from './analytics';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './global.scss';
 
@@ -34,15 +35,20 @@ const App = () => {
     AOS.refresh();
   }, []);
 
+  useEffect(() => {
+    initializeAnalytics();
+    logPageView();
+  }, []);
+
   return (
     <div className="App">
+      <RouteTracker />
       <ScrollToTop />
       <Header setMyRef={setMyRef} />
       <div className="myBody">
         <Routes>
           <Route path={'/'} element={<HomePage myRef={myRef} />} />
           <Route path={'/products'} element={<ProductPage />} />
-          {/*<Route path={'/commercial'} element={<CommercialPage />} />*/}
           <Route path={'/our-jobs'} element={<OurJobsPage />} />
           <Route path={'/services'} element={<ServicesPage />} />
           <Route path={'/contact-us'} element={<ContactUsPage />} />
@@ -67,6 +73,16 @@ const App = () => {
       <ScrollTopButton />
     </div>
   );
+};
+
+const RouteTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    logPageView();
+  }, [location]);
+
+  return null;
 };
 
 export default App;
