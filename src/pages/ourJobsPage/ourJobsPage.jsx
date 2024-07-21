@@ -43,12 +43,26 @@ const OurJobsPage = () => {
               {portfolio.map(item => {
                 return (
                   <div key={item.id} className="masonry-img-wrapper">
-                    <img
-                      src={item.imgUrl}
-                      alt="img"
-                      className="img-fluid"
-                      onClick={() => handleShowSliderModal(item.id)}
-                    />
+                    {item.type === 'video' ? (
+                      <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload={'metadata'}
+                        onClick={() => handleShowSliderModal(item.id)}
+                      >
+                        <source src={item.url} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    ) : (
+                      <img
+                        src={item.url}
+                        alt="img"
+                        className="img-fluid"
+                        onClick={() => handleShowSliderModal(item.id)}
+                      />
+                    )}
                   </div>
                 );
               })}

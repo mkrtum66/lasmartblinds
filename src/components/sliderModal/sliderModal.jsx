@@ -26,7 +26,13 @@ const SliderModal = props => {
               return (
                 <SwiperSlide key={item.id}>
                   <div className="m-auto">
-                    <img src={item.imgUrl} alt="img" className="img-fluid" />
+                    {item.type === 'video' ? (
+                      <video className="video-background" playsInline controls preload={'metadata'}>
+                        <source src={item.url} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img src={item.url} alt="img" className="img-fluid" />
+                    )}
                   </div>
                 </SwiperSlide>
               );
