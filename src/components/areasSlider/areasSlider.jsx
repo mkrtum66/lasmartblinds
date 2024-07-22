@@ -17,7 +17,11 @@ const AreasSlider = () => {
     <ul className="areaSlider">
       {!loading && !!areas.length ? (
         areas.map(area => {
-          return <li className="card-wrapper">{area.area}</li>;
+          return (
+            <li className="card-wrapper" key={area.id}>
+              {area.area}
+            </li>
+          );
         })
       ) : (
         <Loader />
