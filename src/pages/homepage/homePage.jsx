@@ -242,9 +242,6 @@ const HomePage = ({ myRef }) => {
           <Title>Our Team</Title>
           <Team />
         </section>
-        {/*<section id="partners" className="section-wrapper">*/}
-        {/*  <Title>Partners</Title>*/}
-        {/*</section>*/}
         <section id="services" className="section-wrapper">
           <Title>Our Services</Title>
           <div className="row">
