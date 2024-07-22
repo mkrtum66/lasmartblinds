@@ -44,14 +44,7 @@ const OurJobsPage = () => {
                 return (
                   <div key={item.id} className="masonry-img-wrapper">
                     {item.type === 'video' ? (
-                      <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload={'metadata'}
-                        onClick={() => handleShowSliderModal(item.id)}
-                      >
+                      <video autoPlay loop playsInline muted controls preload={'metadata'}>
                         <source src={item.url} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
